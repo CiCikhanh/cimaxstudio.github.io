@@ -7,14 +7,17 @@ export default function CimaxStudioPage() {
   return (
     <main className="min-h-screen bg-black text-white font-sans">
       <section className="h-screen flex flex-col justify-center items-center text-center px-6">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+        {/* Silver Logo */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1 }}
-          className="text-5xl md:text-7xl font-bold mb-6"
+          className="mb-6"
         >
-          Cimax Studio
-        </motion.h1>
+          <div className="text-5xl md:text-7xl font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-gray-300 via-gray-100 to-gray-400">
+            Cimax Studio
+          </div>
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
@@ -61,5 +64,3 @@ export default function CimaxStudioPage() {
     </main>
   );
 }
-
-
