@@ -8,7 +8,6 @@ html, body {
     font-family: 'Inter', Arial, sans-serif;
 }
 
-/* Animated background covers entire viewport */
 #background-animation {
     position: fixed;
     inset: 0;
@@ -19,7 +18,7 @@ html, body {
     overflow: hidden;
 }
 
-/* Centered intro animation */
+/* Centered 321 intro animation */
 #center-animation {
     position: fixed;
     inset: 0;
@@ -48,16 +47,13 @@ html, body {
     background: transparent;
     text-align: center;
     opacity: 0;
-    transition: opacity 1.2s;
+    transition: opacity 1s;
     pointer-events: none;
 }
-
-/* Allows for clickable links in main content after fade-in */
 #main-content[style*="opacity: 1"] {
     pointer-events: auto;
 }
 
-/* Silver gradient title */
 .silver-gradient {
     font-size: 4rem;
     font-weight: 900;
@@ -68,18 +64,8 @@ html, body {
     color: transparent;
     letter-spacing: 2px;
     margin-bottom: 2rem;
-    animation: fadeInTitle 1.2s cubic-bezier(.4,0,.2,1) forwards;
-    opacity: 0;
-}
-
-#main-content[style*="opacity: 1"] .silver-gradient {
-    opacity: 1;
     transition: opacity 1.2s;
-}
-
-@keyframes fadeInTitle {
-    from { opacity: 0; transform: translateY(40px);}
-    to { opacity: 1; transform: translateY(0);}
+    min-height: 4.5rem;
 }
 
 .intro {
@@ -88,4 +74,5 @@ html, body {
     max-width: 500px;
     margin: 0 auto;
     line-height: 1.6;
+    min-height: 5.5rem;
 }
