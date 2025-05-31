@@ -1,50 +1,87 @@
-body {
+html, body {
     margin: 0;
+    padding: 0;
+    width: 100vw;
     height: 100vh;
-    background: #000;
-    color: #fff;
-    font-family: 'Inter', Arial, sans-serif;
     overflow: hidden;
+    background: #000;
+    font-family: 'Inter', Arial, sans-serif;
 }
-#animation-container {
+
+/* Animated background covers entire viewport */
+#background-animation {
     position: fixed;
     inset: 0;
-    background: #000;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Centered intro animation */
+#center-animation {
+    position: fixed;
+    inset: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 10;
+    z-index: 2;
+    background: transparent;
     transition: opacity 0.8s;
 }
-#lottie {
+
+#lottie-intro {
     width: 320px;
     height: 320px;
-    margin: auto;
 }
-main#main-content {
-    min-height: 100vh;
+
+/* Main content (hidden initially, fades in) */
+#main-content {
+    position: fixed;
+    inset: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
+    z-index: 3;
     background: transparent;
-    position: relative;
-    z-index: 1;
+    text-align: center;
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity 1.2s;
+    pointer-events: none;
 }
+
+/* Allows for clickable links in main content after fade-in */
+#main-content[style*="opacity: 1"] {
+    pointer-events: auto;
+}
+
+/* Silver gradient title */
 .silver-gradient {
     font-size: 4rem;
     font-weight: 900;
     background: linear-gradient(90deg, #d9d9d9 0%, #a8a8a8 50%, #f8f8f8 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-            background-clip: text;
-            color: transparent;
+    background-clip: text;
+    color: transparent;
     letter-spacing: 2px;
     margin-bottom: 2rem;
+    animation: fadeInTitle 1.2s cubic-bezier(.4,0,.2,1) forwards;
+    opacity: 0;
 }
+
+#main-content[style*="opacity: 1"] .silver-gradient {
+    opacity: 1;
+    transition: opacity 1.2s;
+}
+
+@keyframes fadeInTitle {
+    from { opacity: 0; transform: translateY(40px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
 .intro {
     font-size: 1.25rem;
     color: #e0e0e0;
