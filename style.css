@@ -1,11 +1,11 @@
-html, body {
-    margin: 0;
-    padding: 0;
+body, html {
     width: 100vw;
     height: 100vh;
+    margin: 0;
+    padding: 0;
     overflow: hidden;
-    background: #000;
-    font-family: 'Inter', Arial, sans-serif;
+    font-family: 'Montserrat', Arial, sans-serif;
+    background: #191b1d;
 }
 
 #background-animation {
@@ -14,75 +14,123 @@ html, body {
     width: 100vw;
     height: 100vh;
     z-index: 0;
-    pointer-events: none; /* allows clicking through */
+    pointer-events: none;
     overflow: hidden;
 }
 
-body, html {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow: hidden; /* Prevent scrollbars if background is large */
-}
-#background-desktop { display: block; }
-#background-mobile { display: none; }
-
-@media (max-width: 600px) {
-    #background-desktop { display: none; }
-    #background-mobile { display: block; }
-}
-
-main#main-content {
-    position: fixed;
-    inset: 0;
-    z-index: 3;
+#main-content {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    background: transparent;
-    color: #fff;
-    padding: 0 1rem;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 7vh;
 }
 
 .silver-gradient {
-    font-size: 2.2rem;
-    font-weight: 900;
-    background: linear-gradient(90deg, #d9d9d9 0%, #a8a8a8 50%, #f8f8f8 100%);
+    background: linear-gradient(90deg, #f8fafc, #c7c7c7 60%, #f8fafc);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
-    letter-spacing: 2px;
-    margin-bottom: 1.2rem;
-    transition: opacity 1.2s;
-    min-height: 2.5rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 18px;
+    letter-spacing: 0.04em;
+    text-align: center;
 }
 
 .intro {
-    font-size: 1rem;
-    max-width: 100%;
-    line-height: 1.5;
-    color: #e0e0e0;
-    margin: 0 auto;
-    padding: 0 4vw;
-    word-break: break-word;
-    min-height: 5.5rem;
+    color: #e8e8e8;
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    text-align: center;
+    line-height: 1.7;
 }
 
-@media (max-width: 600px) {
-    .silver-gradient {
-        font-size: 2rem;
-        margin-bottom: 1rem;
+#stonebutton-container {
+    margin-top: 40px;
+    margin-bottom: 0;
+    width: 160px;
+    height: 160px;
+    cursor: pointer;
+    z-index: 3;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(30,30,30,0.82);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+.modal-content {
+    background: #fff;
+    border-radius: 18px;
+    padding: 48px 32px;
+    box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+    text-align: center;
+    min-width: 320px;
+    max-width: 95vw;
+    position: relative;
+}
+.close-btn {
+    position: absolute;
+    top: 12px; right: 12px;
+    background: #ccc;
+    border: none;
+    border-radius: 50%;
+    width: 32px; height: 32px;
+    font-size: 1.2em;
+    cursor: pointer;
+    line-height: 28px;
+}
+.landing-title {
+    font-size: 2.2rem;
+    font-family: 'Montserrat', Arial, sans-serif;
+    color: #222;
+    margin-bottom: 1.2em;
+    letter-spacing: 0.02em;
+}
+.landing-btn {
+    padding: 16px 40px;
+    border: none;
+    border-radius: 32px;
+    background: linear-gradient(90deg, #4e54c8, #8f94fb);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 3px 16px rgba(78,84,200,0.15);
+    text-decoration: none;
+    display: inline-block;
+}
+.landing-btn:hover, .landing-btn:focus {
+    background: linear-gradient(90deg, #8f94fb, #4e54c8);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Responsive for modal on small screens */
+@media (max-width: 500px) {
+    .modal-content {
+        padding: 30px 10px;
+        min-width: 90vw;
     }
-    .intro {
+    .landing-title {
+        font-size: 1.3rem;
+    }
+    .landing-btn {
         font-size: 1rem;
-        line-height: 1.45;
-        padding: 0 4vw;
+        padding: 12px 16px;
     }
-    main#main-content {
-        padding: 0 4vw;
+    .close-btn {
+        width: 28px; height: 28px; font-size: 1em;
     }
 }
