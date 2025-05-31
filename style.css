@@ -9,15 +9,13 @@ html, body {
 }
 
 #background-animation {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /* Optional: Set a size for the animation */
-    width: 600px; /* Or any size you want */
-    height: 600px;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
     z-index: 0;
-    pointer-events: none; /* So clicks pass through if needed */
+    pointer-events: none; /* allows clicking through */
+    overflow: hidden;
 }
 
 body, html {
