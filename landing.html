@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome | CiMax Studio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style.css"><!-- Reuse existing styles if desired -->
+    <style>
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #232526, #414345);
+            margin: 0;
+        }
+        .landing-container {
+            background: rgba(255,255,255,0.12);
+            border-radius: 24px;
+            padding: 48px 32px;
+            box-shadow: 0 6px 32px rgba(0,0,0,0.18);
+            text-align: center;
+            max-width: 400px;
+        }
+        .landing-title {
+            font-size: 2.2rem;
+            font-family: 'Montserrat', Arial, sans-serif;
+            color: #fff;
+            margin-bottom: 1.2em;
+            letter-spacing: 0.02em;
+        }
+        .landing-btn {
+            padding: 16px 40px;
+            border: none;
+            border-radius: 32px;
+            background: linear-gradient(90deg, #4e54c8, #8f94fb);
+            color: #fff;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 3px 16px rgba(78,84,200,0.15);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .landing-btn:hover, .landing-btn:focus {
+            background: linear-gradient(90deg, #8f94fb, #4e54c8);
+            transform: translateY(-2px) scale(1.04);
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-title">Welcome to CiMax Studio</div>
+        <a href="index.html" class="landing-btn">Go to Main Page</a>
+    </div>
+</body>
+</html>
