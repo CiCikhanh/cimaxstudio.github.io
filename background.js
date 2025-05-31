@@ -16,5 +16,5 @@ lottie.loadAnimation({
     renderer: 'svg',
     loop: true,
     autoplay: true,
-    path: 'Animation - 123.json' // <- replace with your preferred mobile background animation
+    path: 'Animation - background2.json' // <- replace with your preferred mobile background animation
 });
