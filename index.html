@@ -5,12 +5,19 @@
     <title>CiMax Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <!-- Lottie CDN -->
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 </head>
 <body>
-    <div id="animation-container">
-        <div id="lottie"></div>
+    <!-- Animated Background -->
+    <div id="background-animation"></div>
+
+    <!-- Centered Intro Animation -->
+    <div id="center-animation">
+        <div id="lottie-intro"></div>
     </div>
+
+    <!-- Title/Intro Main Content -->
     <main id="main-content">
         <h1 class="silver-gradient">CiMax Studio</h1>
         <p class="intro">
@@ -19,33 +26,44 @@
             Liên hệ mình nếu bạn muốn hợp tác nhé.
         </p>
     </main>
+
     <script>
-        // Initialize Lottie animation
-        const animation = lottie.loadAnimation({
-            container: document.getElementById('lottie'),
+        // Animated background (looping)
+        lottie.loadAnimation({
+            container: document.getElementById('background-animation'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'Animation - background1.json'
+        });
+
+        // Centered intro animation (plays once)
+        const introAnim = lottie.loadAnimation({
+            container: document.getElementById('lottie-intro'),
             renderer: 'svg',
             loop: false,
             autoplay: true,
-            path: 'Animation - 123.json' // Animation file path
+            path: 'Animation - 123.json'
         });
 
         // Hide main content initially
         document.getElementById('main-content').style.opacity = 0;
 
-        // When animation ends, fade out and show main content
-        animation.addEventListener('complete', () => {
-            const animContainer = document.getElementById('animation-container');
-            animContainer.style.transition = "opacity 0.8s";
-            animContainer.style.opacity = 0;
+        // Fade in main content after intro animation completes
+        introAnim.addEventListener('complete', () => {
+            // Fade out animation container
+            const centerAnim = document.getElementById('center-animation');
+            centerAnim.style.transition = "opacity 0.8s";
+            centerAnim.style.opacity = 0;
             setTimeout(() => {
-                animContainer.style.display = "none";
+                centerAnim.style.display = "none";
                 const mainContent = document.getElementById('main-content');
-                mainContent.style.display = "block";
+                mainContent.style.display = "flex";
                 setTimeout(() => {
-                    mainContent.style.transition = "opacity 1s";
+                    mainContent.style.transition = "opacity 1.2s";
                     mainContent.style.opacity = 1;
-                }, 100); // slight delay for smoothness
-            }, 850); // matches fade out duration
+                }, 100); // slight delay for effect
+            }, 850);
         });
     </script>
 </body>
