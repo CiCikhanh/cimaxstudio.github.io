@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main {
+    text-align: center;
+}
+
+.silver-gradient {
+    font-size: 4rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #d9d9d9 0%, #a8a8a8 50%, #f8f8f8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+}
+
+.intro {
+    font-size: 1.25rem;
+    color: #e0e0e0;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
