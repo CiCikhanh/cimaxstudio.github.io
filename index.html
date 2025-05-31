@@ -12,27 +12,22 @@
     <!-- Animated Background -->
     <div id="background-animation"></div>
 
-    <!-- Centered Intro Animation -->
+    <!-- Centered 321 Animation -->
     <div id="center-animation">
         <div id="lottie-intro"></div>
+        <audio id="audio-321" src="female-vocal-321-countdown-240912.mp3"></audio>
     </div>
 
-    <!-- Title/Intro Main Content -->
+    <!-- Main Content (hidden initially) -->
     <main id="main-content">
-        <h1 class="silver-gradient">CiMax Studio</h1>
-        <p class="intro">
-            Hi, I’m CiCi — the creative mind behind CiMax Studio.<br>
-            Welcome to the space where imagination meets innovation.<br>
-            I blend creativity and technology to help businesses grow smarter, faster, and with style.<br>
-            I’m not just a designer or a developer.<br>
-            I’m your secret weapon for turning bold ideas into digital realities.<br>
-            Curious about what I can do for your brand?.<br>
-            Let’s find out — together.
-        </p>
+        <h1 class="silver-gradient" id="animated-title"></h1>
+        <div class="intro" id="intro-text"></div>
+        <!-- Typewriter sound -->
+        <audio id="audio-type" src="type-writing-6834.mp3"></audio>
     </main>
 
     <script>
-        // Animated background (looping)
+        // 1. Animated background (loop)
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
             renderer: 'svg',
@@ -41,7 +36,7 @@
             path: 'Animation - background1.json'
         });
 
-        // Centered intro animation (plays once)
+        // 2. Center intro animation (321, play once)
         const introAnim = lottie.loadAnimation({
             container: document.getElementById('lottie-intro'),
             renderer: 'svg',
@@ -50,12 +45,21 @@
             path: 'Animation - 123.json'
         });
 
-        // Hide main content initially
+        // 3. Play audio along with animation
+        const audio321 = document.getElementById('audio-321');
+        introAnim.addEventListener('DOMLoaded', () => {
+            audio321.currentTime = 0;
+            audio321.play();
+        });
+
+        // 4. Hide main content initially
         document.getElementById('main-content').style.opacity = 0;
 
-        // Fade in main content after intro animation completes
+        // 5. After animation ends, fade out animation, show main content with typewriter effect
         introAnim.addEventListener('complete', () => {
-            // Fade out animation container
+            audio321.pause();
+            audio321.currentTime = 0;
+            // Fade out intro animation
             const centerAnim = document.getElementById('center-animation');
             centerAnim.style.transition = "opacity 0.8s";
             centerAnim.style.opacity = 0;
@@ -64,11 +68,72 @@
                 const mainContent = document.getElementById('main-content');
                 mainContent.style.display = "flex";
                 setTimeout(() => {
-                    mainContent.style.transition = "opacity 1.2s";
+                    mainContent.style.transition = "opacity 1s";
                     mainContent.style.opacity = 1;
-                }, 100); // slight delay for effect
+                    startTypewriter();
+                }, 100);
             }, 850);
         });
+
+        // 6. Typewriter animation for title and intro text
+        const titleText = "CiMax Studio";
+    const introLines = [
+        "Hi, I’m CiCi — the creative mind behind CiMax Studio",
+        "Welcome to the space where imagination meets innovation.",
+        "I blend creativity and technology to help businesses grow smarter, faster, and with style.",
+        "",
+        "I’m not just a designer or a developer.",
+        "I’m your secret weapon for turning bold ideas into digital realities.",
+        "",
+        "Curious about what I can do for your brand?",
+        "Let’s find out — together."
+    ];
+        const typeSound = document.getElementById('audio-type');
+        const animatedTitle = document.getElementById('animated-title');
+        const introText = document.getElementById('intro-text');
+
+        async function typeWriterText(element, text, playSound = true, speed = 65) {
+            element.textContent = "";
+            for (let i = 0; i < text.length; i++) {
+                element.textContent += text[i];
+                if (playSound && i === 0) {
+                    typeSound.currentTime = 0;
+                    typeSound.play();
+                }
+                await new Promise(r => setTimeout(r, speed));
+            }
+            if (playSound) {
+                typeSound.pause();
+                typeSound.currentTime = 0;
+            }
+        }
+
+        async function showIntroLines(lines, speed = 55, delayBetween = 400) {
+            introText.innerHTML = "";
+            for (let i = 0; i < lines.length; i++) {
+                // Play typing sound at the start of each line
+                typeSound.currentTime = 0;
+                typeSound.play();
+                let span = document.createElement("span");
+                introText.appendChild(span);
+                for (let j = 0; j < lines[i].length; j++) {
+                    span.textContent += lines[i][j];
+                    await new Promise(r => setTimeout(r, speed));
+                }
+                typeSound.pause();
+                typeSound.currentTime = 0;
+                introText.appendChild(document.createElement("br"));
+                await new Promise(r => setTimeout(r, delayBetween));
+            }
+        }
+
+        // Master sequence
+        async function startTypewriter() {
+            // Animate title
+            await typeWriterText(animatedTitle, titleText, true, 70);
+            // Animate intro lines one by one
+            await showIntroLines(introLines, 30, 500);
+        }
     </script>
 </body>
 </html>
