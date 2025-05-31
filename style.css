@@ -8,7 +8,7 @@ html, body {
     font-family: 'Inter', Arial, sans-serif;
 }
 
-#background-animation {
+#background-desktop, #background-mobile {
     position: fixed;
     inset: 0;
     width: 100vw;
@@ -16,46 +16,32 @@ html, body {
     z-index: 1;
     pointer-events: none;
     overflow: hidden;
-}
-
-/* Centered 321 intro animation */
-#center-animation {
-    position: fixed;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 2;
     background: transparent;
-    transition: opacity 0.8s;
+}
+#background-desktop { display: block; }
+#background-mobile { display: none; }
+
+@media (max-width: 600px) {
+    #background-desktop { display: none; }
+    #background-mobile { display: block; }
 }
 
-#lottie-intro {
-    width: 320px;
-    height: 320px;
-}
-
-/* Main content (hidden initially, fades in) */
-#main-content {
+main#main-content {
     position: fixed;
     inset: 0;
+    z-index: 3;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: 3;
-    background: transparent;
     text-align: center;
-    opacity: 0;
-    transition: opacity 1s;
-    pointer-events: none;
-}
-#main-content[style*="opacity: 1"] {
-    pointer-events: auto;
+    background: transparent;
+    color: #fff;
+    padding: 0 1rem;
 }
 
 .silver-gradient {
-    font-size: 4rem;
+    font-size: 2.2rem;
     font-weight: 900;
     background: linear-gradient(90deg, #d9d9d9 0%, #a8a8a8 50%, #f8f8f8 100%);
     -webkit-background-clip: text;
@@ -63,16 +49,33 @@ html, body {
     background-clip: text;
     color: transparent;
     letter-spacing: 2px;
-    margin-bottom: 2rem;
+    margin-bottom: 1.2rem;
     transition: opacity 1.2s;
-    min-height: 4.5rem;
+    min-height: 2.5rem;
 }
 
 .intro {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    max-width: 100%;
+    line-height: 1.5;
     color: #e0e0e0;
-    max-width: 500px;
     margin: 0 auto;
-    line-height: 1.6;
+    padding: 0 4vw;
+    word-break: break-word;
     min-height: 5.5rem;
+}
+
+@media (max-width: 600px) {
+    .silver-gradient {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+    .intro {
+        font-size: 1rem;
+        line-height: 1.45;
+        padding: 0 4vw;
+    }
+    main#main-content {
+        padding: 0 4vw;
+    }
 }
