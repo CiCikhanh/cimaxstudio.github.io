@@ -67,9 +67,9 @@ html, body {
     -webkit-background-clip: text;
     background-clip: text;
     filter: drop-shadow(0 5px 24px #b89028) drop-shadow(0 1px 0px #fffbe0);
-    animation: jump-in 1s cubic-bezier(.28,.84,.42,1) 0.2s forwards;
-    transform: translateY(80%);
-    opacity: 0;
+    animation: jump-in 1s cubic-bezier(.28,.84,.42,1) 0.2s both;
+    animation-iteration-count: infinite;         /* loop forever */
+    animation-direction: normal;
     font-size: 1.3em;
     letter-spacing: 1px;
     font-family: inherit;
@@ -77,29 +77,30 @@ html, body {
     margin-right: 1px;
 }
 .jump-letter:nth-of-type(1) {
-    animation-delay: 0.1s;
+    animation-delay: 0s, 0s;
 }
 .jump-letter:nth-of-type(2) {
-    animation-delay: 0.4s;
+    animation-delay: 0.5s, 0.5s;
 }
 
 @keyframes jump-in {
-    0% {
-        transform: translateY(80%) scale(0.7) rotate(-7deg);
-        opacity: 0;
-    }
-    40% {
+    0%, 100% {
+        transform: translateY(0) scale(1) rotate(0);
         opacity: 1;
+    }
+    10% {
         transform: translateY(-40%) scale(1.2) rotate(7deg);
     }
-    60% {
+    20% {
         transform: translateY(10%) scale(0.96) rotate(-6deg);
     }
-    80% {
+    30% {
         transform: translateY(-7%) scale(1.08) rotate(5deg);
     }
-    100% {
+    40% {
         transform: translateY(0) scale(1) rotate(0);
+    }
+    100% {
         opacity: 1;
     }
 }
