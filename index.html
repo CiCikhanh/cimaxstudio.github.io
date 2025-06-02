@@ -27,7 +27,7 @@
         window.addEventListener('orientationchange', setVhVar);
         setVhVar();
 
-        // Animated background
+        // Use Animation - background3.json as background
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
             renderer: 'svg',
@@ -37,7 +37,7 @@
         });
 
         // Stonebutton Lottie animation as button
-        const stoneBtn = lottie.loadAnimation({
+        lottie.loadAnimation({
             container: document.getElementById('stonebutton-container'),
             renderer: 'svg',
             loop: true,
