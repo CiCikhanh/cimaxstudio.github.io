@@ -34,7 +34,7 @@ html, body {
     height: calc(var(--vh, 1vh) * 100);
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: center; /* Always vertically center the group */
     z-index: 1;
 }
 
@@ -47,7 +47,7 @@ html, body {
     letter-spacing: 2.5px;
     user-select: none;
     position: absolute;
-    top: 150px; /* or whatever space from top you want */
+    top: 168px; /* or whatever space from top you want */
     left: 50%;
     transform: translateX(-50%);
     /* Gradient gold League of Legends style */
@@ -56,6 +56,8 @@ html, body {
     -webkit-background-clip: text;
     background-clip: text;
     filter: drop-shadow(0 5px 24px #b89028) drop-shadow(0 1px 0px #fffbe0);
+    white-space: normal; /* default: allow wrapping */
+
 }
 
 .jump-letter {
@@ -114,6 +116,13 @@ html, body {
 }
 
 @media (max-width: 600px) {
+    #welcome-text {
+        font-size: 1.1rem;      /* smaller font for mobile */
+        margin-bottom: 16px;    /* tighter gap */
+        white-space: nowrap;    /* force single line */
+        letter-spacing: 1.2px;
+    }
+
     #stonebutton-container {
         width: 140px;
         height: 140px;
