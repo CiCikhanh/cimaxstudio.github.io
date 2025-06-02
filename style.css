@@ -118,8 +118,8 @@ html, body {
 
 @media (max-width: 600px) {
     #welcome-text {
-        font-size: 1.0rem;      /* smaller font for mobile */
-        margin-bottom: 12px;    /* tighter gap */
+        font-size: 1.1rem;      /* smaller font for mobile */
+        margin-bottom: 16px;    /* tighter gap */
         white-space: nowrap;    /* force single line */
         letter-spacing: 1.2px;
     }
