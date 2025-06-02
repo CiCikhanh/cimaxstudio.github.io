@@ -46,6 +46,10 @@ html, body {
     margin-bottom: 38px;
     letter-spacing: 2.5px;
     user-select: none;
+    position: absolute;
+    top: 60px; /* or whatever space from top you want */
+    left: 50%;
+    transform: translateX(-50%);
     /* Gradient gold League of Legends style */
     background: linear-gradient(90deg, #fffbe0 7%, #e7c873 24%, #b89028 59%, #ffe8a3 85%, #fffbe0 100%);
     color: transparent;
