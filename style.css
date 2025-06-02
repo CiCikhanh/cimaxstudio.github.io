@@ -14,7 +14,17 @@ html, body {
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
-    background: #191b1d;
+    /* The SVG will stretch to fill because of preserveAspectRatio: none */
+}
+#background-animation svg {
+    width: 100vw !important;
+    height: calc(var(--vh, 1vh) * 100) !important;
+    min-width: 100vw !important;
+    min-height: calc(var(--vh, 1vh) * 100) !important;
+    max-width: 100vw !important;
+    max-height: calc(var(--vh, 1vh) * 100) !important;
+    object-fit: fill;
+    display: block;
 }
 
 #center-content {
