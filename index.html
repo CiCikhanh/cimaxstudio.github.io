@@ -23,6 +23,7 @@
     <div id="center-content">
         <div id="stonebutton-container"></div>
     </div>
+    <audio id="click-sound" src="menu-button-88360.mp3" preload="auto"></audio>
     <script>
         // Lottie background (Animation - background4.json)
         lottie.loadAnimation({
@@ -45,6 +46,16 @@
         });
         document.getElementById('stonebutton-container').onclick = function() {
             window.location.href = "landing.html";
+        };
+
+        // Play sound on button click, then redirect
+        document.getElementById('stonebutton-container').onclick = function() {
+            var audio = document.getElementById('click-sound');
+            audio.currentTime = 0;
+            audio.play();
+            setTimeout(function() {
+                window.location.href = "landing.html";
+            }, 200); // adjust delay if your sound is longer/shorter
         };
     </script>
 </body>
