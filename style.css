@@ -47,7 +47,7 @@ html, body {
     letter-spacing: 2.5px;
     user-select: none;
     position: absolute;
-    top: 100px; /* or whatever space from top you want */
+    top: 150px; /* or whatever space from top you want */
     left: 50%;
     transform: translateX(-50%);
     /* Gradient gold League of Legends style */
