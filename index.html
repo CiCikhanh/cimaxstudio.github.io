@@ -5,9 +5,10 @@
     <title>CiMax Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
+    <!-- Lottie CDN -->
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
     <script>
-        // Always set --vh to the real viewport height (in px / 100)
+        // Dynamic viewport height for mobile (fixes 100vh bugs)
         function setVhVar() {
             document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
         }
@@ -23,13 +24,18 @@
         <div id="stonebutton-container"></div>
     </div>
     <script>
+        // Lottie background (Animation - background4.json)
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
             renderer: 'svg',
             loop: true,
             autoplay: true,
-            path: 'Animation - background4.json'
+            path: 'Animation - background4.json',
+            rendererSettings: {
+                preserveAspectRatio: 'none' // This stretches to fill!
+            }
         });
+        // Stonebutton (unchanged)
         lottie.loadAnimation({
             container: document.getElementById('stonebutton-container'),
             renderer: 'svg',
