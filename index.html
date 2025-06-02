@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <title>CiMax Studio</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Main CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- Lottie CDN -->
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
-    <!-- Viewport height fix for mobile browsers -->
     <script>
+        // Always set --vh to the real viewport height (in px / 100)
         function setVhVar() {
-            document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+            document.documentElement.style.setProperty('--vh', (window.innerHeight * 0.01) + 'px');
         }
         window.addEventListener('resize', setVhVar);
         window.addEventListener('orientationchange', setVhVar);
@@ -20,16 +18,11 @@
     </script>
 </head>
 <body>
-    <!-- Animated Fullscreen Background -->
     <div id="background-animation"></div>
-
-    <!-- Centered Stonebutton Animation -->
     <div id="center-content">
         <div id="stonebutton-container"></div>
     </div>
-
     <script>
-        // Use Animation - background3.json as background
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
             renderer: 'svg',
@@ -37,8 +30,6 @@
             autoplay: true,
             path: 'Animation - background3.json'
         });
-
-        // Stonebutton Lottie animation as button
         lottie.loadAnimation({
             container: document.getElementById('stonebutton-container'),
             renderer: 'svg',
@@ -47,7 +38,6 @@
             path: 'Animation - stonebutton.json'
         });
         document.getElementById('stonebutton-container').onclick = function() {
-            // Redirect to landing page
             window.location.href = "landing.html";
         };
     </script>
