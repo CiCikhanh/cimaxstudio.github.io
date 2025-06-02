@@ -1,13 +1,9 @@
-body, html {
+html, body {
     width: 100vw;
     height: 100vh;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background: #191b1d;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 #background-animation {
@@ -20,13 +16,33 @@ body, html {
     overflow: hidden;
 }
 
-#stonebutton-container {
-    width: 200px;
-    height: 200px;
-    cursor: pointer;
-    z-index: 2;
+#center-content {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: auto;
+    z-index: 1;
+}
+
+#stonebutton-container {
+    width: 200px;
+    height: 200px;
+    max-width: 80vw;
+    max-height: 80vw;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 600px) {
+    #stonebutton-container {
+        width: 140px;
+        height: 140px;
+        max-width: 80vw;
+        max-height: 80vw;
+    }
 }
