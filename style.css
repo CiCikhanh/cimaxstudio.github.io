@@ -38,6 +38,66 @@ html, body {
     z-index: 1;
 }
 
+#welcome-text {
+    font-family: 'Cinzel', 'Trajan Pro', 'Times New Roman', serif;
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 38px;
+    letter-spacing: 2.5px;
+    user-select: none;
+    /* Gradient gold League of Legends style */
+    background: linear-gradient(90deg, #fffbe0 7%, #e7c873 24%, #b89028 59%, #ffe8a3 85%, #fffbe0 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 5px 24px #b89028) drop-shadow(0 1px 0px #fffbe0);
+}
+
+.jump-letter {
+    display: inline-block;
+    background: linear-gradient(90deg, #fffbe0 10%, #ffe37b 35%, #e7c873 60%, #b89028 80%, #fffbe0 100%);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: drop-shadow(0 5px 24px #b89028) drop-shadow(0 1px 0px #fffbe0);
+    animation: jump-in 1s cubic-bezier(.28,.84,.42,1) 0.2s forwards;
+    transform: translateY(80%);
+    opacity: 0;
+    font-size: 1.3em;
+    letter-spacing: 1px;
+    font-family: inherit;
+    font-weight: bold;
+    margin-right: 1px;
+}
+.jump-letter:nth-of-type(1) {
+    animation-delay: 0.1s;
+}
+.jump-letter:nth-of-type(2) {
+    animation-delay: 0.4s;
+}
+
+@keyframes jump-in {
+    0% {
+        transform: translateY(80%) scale(0.7) rotate(-7deg);
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+        transform: translateY(-40%) scale(1.2) rotate(7deg);
+    }
+    60% {
+        transform: translateY(10%) scale(0.96) rotate(-6deg);
+    }
+    80% {
+        transform: translateY(-7%) scale(1.08) rotate(5deg);
+    }
+    100% {
+        transform: translateY(0) scale(1) rotate(0);
+        opacity: 1;
+    }
+}
+
 #stonebutton-container {
     width: 200px;
     height: 200px;
