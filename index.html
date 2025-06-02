@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
     <!-- Lottie CDN -->
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+    <!-- Viewport height fix for mobile browsers -->
+    <script>
+        function setVhVar() {
+            document.documentElement.style.setProperty('--vh', window.innerHeight * 0.01 + 'px');
+        }
+        window.addEventListener('resize', setVhVar);
+        window.addEventListener('orientationchange', setVhVar);
+        window.addEventListener('DOMContentLoaded', setVhVar);
+        setVhVar();
+    </script>
 </head>
 <body>
     <!-- Animated Fullscreen Background -->
@@ -19,14 +29,6 @@
     </div>
 
     <script>
-        // Viewport height fix for mobile browsers
-        function setVhVar() {
-            document.documentElement.style.setProperty('--vh', `${window.innerHeight * 0.01}px`);
-        }
-        window.addEventListener('resize', setVhVar);
-        window.addEventListener('orientationchange', setVhVar);
-        setVhVar();
-
         // Use Animation - background3.json as background
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
