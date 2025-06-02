@@ -10,34 +10,14 @@
     <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
 </head>
 <body>
-    <!-- Animated Background -->
+    <!-- Animated Background (optional, remove if you want only the button) -->
     <div id="background-animation"></div>
-    <div id="background-desktop"></div>
-    <div id="background-mobile"></div>
-    <main id="main-content">
-        <h1 class="silver-gradient" id="animated-title"></h1>
-        <div class="intro" id="intro-text"></div>
 
-        <!-- Animated Stone Button (Lottie) -->
-        <div id="stonebutton-container" style="width:160px;height:160px;cursor:pointer;margin:40px auto 0 auto;"></div>
-    </main>
-
-    <!-- Landing Page Modal Overlay -->
-    <div id="landing-modal" class="modal-overlay" style="display:none;">
-      <div class="modal-content">
-        <div class="landing-title">Welcome to CiMax Studio</div>
-        <a href="index.html" class="landing-btn">Go to Main Page</a>
-        <button id="close-landing" class="close-btn" title="Close">&times;</button>
-      </div>
-    </div>
-
-    <!-- Typewriter sound -->
-    <audio id="audio-type" src="type-writing-6834.mp3"></audio>
-    <!-- 321 Animation Audio (if still needed) -->
-    <audio id="audio-321" src="female-vocal-321-countdown-240912.mp3"></audio>
+    <!-- Centered Stonebutton Animation -->
+    <div id="stonebutton-container"></div>
 
     <script>
-        // 1. Animated background (loop)
+        // Optional: Animated background (remove if you want only the button)
         lottie.loadAnimation({
             container: document.getElementById('background-animation'),
             renderer: 'svg',
@@ -46,7 +26,7 @@
             path: 'Animation - background1.json'
         });
 
-        // 2. Stonebutton Lottie as animated button
+        // Stonebutton Lottie animation as button
         const stoneBtn = lottie.loadAnimation({
             container: document.getElementById('stonebutton-container'),
             renderer: 'svg',
@@ -55,78 +35,9 @@
             path: 'Animation - stonebutton.json'
         });
         document.getElementById('stonebutton-container').onclick = function() {
-            document.getElementById('landing-modal').style.display = 'flex';
+            // Redirect to landing page
+            window.location.href = "landing.html";
         };
-
-        // 3. Modal overlay close logic
-        document.getElementById('close-landing').onclick = function(){
-            document.getElementById('landing-modal').style.display = 'none';
-        };
-        document.getElementById('landing-modal').onclick = function(e){
-            if(e.target === this) this.style.display = 'none';
-        };
-
-        // 4. Typewriter animation for title and intro text
-        const titleText = "CiMax Studio";
-        const introLines = [
-            "Hi, I’m CiCi — the creative mind behind CiMax Studio",
-            "Welcome to the space where imagination meets innovation.",
-            "I blend creativity and technology to help businesses grow smarter, faster, and with style.",
-            "",
-            "I’m not just a designer or a developer.",
-            "I’m your secret weapon for turning bold ideas into digital realities.",
-            "",
-            "Curious about what I can do for your brand?",
-            "Let’s find out — together."
-        ];
-        const typeSound = document.getElementById('audio-type');
-        const animatedTitle = document.getElementById('animated-title');
-        const introText = document.getElementById('intro-text');
-
-        async function typeWriterText(element, text, playSound = true, speed = 65) {
-            element.textContent = "";
-            for (let i = 0; i < text.length; i++) {
-                element.textContent += text[i];
-                if (playSound && i === 0) {
-                    typeSound.currentTime = 0;
-                    typeSound.play();
-                }
-                await new Promise(r => setTimeout(r, speed));
-            }
-            if (playSound) {
-                typeSound.pause();
-                typeSound.currentTime = 0;
-            }
-        }
-
-        async function showIntroLines(lines, speed = 55, delayBetween = 400) {
-            introText.innerHTML = "";
-            for (let i = 0; i < lines.length; i++) {
-                // Play typing sound at the start of each line
-                typeSound.currentTime = 0;
-                typeSound.play();
-                let span = document.createElement("span");
-                introText.appendChild(span);
-                for (let j = 0; j < lines[i].length; j++) {
-                    span.textContent += lines[i][j];
-                    await new Promise(r => setTimeout(r, speed));
-                }
-                typeSound.pause();
-                typeSound.currentTime = 0;
-                introText.appendChild(document.createElement("br"));
-                await new Promise(r => setTimeout(r, delayBetween));
-            }
-        }
-
-        // Master sequence
-        async function startTypewriter() {
-            // Animate title
-            await typeWriterText(animatedTitle, titleText, true, 70);
-            // Animate intro lines one by one
-            await showIntroLines(introLines, 30, 500);
-        }
-        // Start typewriter effect on load
-        startTypewriter();
     </script>
 </body>
 </html>
