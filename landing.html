@@ -1,24 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
-<script>
-  lottie.loadAnimation({
-    container: document.getElementById('lottie-background'),
-    renderer: 'svg',
-    loop: true,
-    autoplay: true,
-    path: 'Animation - background1.json' // Adjust path if needed
-  });
-</script>
 <head>
   <meta charset="UTF-8">
-  <title>The Perfect Website Landing Page</title>
+  <title>Cimax Studio – The Perfect Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Fonts for Montserrat -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <!-- Landing page specific CSS -->
+  <link rel="stylesheet" href="landing-style.css">
+  <!-- Lottie Web for animated background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
 </head>
 <body>
+  <!-- Lottie Animated Background -->
+  <div id="lottie-background"></div>
   <header>
-    <div class="logo"> 
-      <img src="logo.png" alt="Logo" />
+    <div class="logo">
+      <img src="logo.png" alt="Cimax Studio Logo">
     </div>
     <nav>
       <a href="#" class="active">HOME</a>
@@ -35,7 +33,7 @@
   <main>
     <section class="hero">
       <div class="avatar">
-        <img src="avatar.png" alt="Avatar" />
+        <img src="avatar.png" alt="Character illustration">
       </div>
       <div class="hero-text">
         <p class="subtitle">HI, I AM MORGAN, I DESIGN</p>
@@ -45,5 +43,15 @@
       </div>
     </section>
   </main>
+  <script>
+    // Lottie animation background initialization
+    lottie.loadAnimation({
+      container: document.getElementById('lottie-background'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'Animation - background2.json' // Ensure this path is correct
+    });
+  </script>
 </body>
 </html>
