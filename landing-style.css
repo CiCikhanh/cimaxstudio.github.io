@@ -1,0 +1,159 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  min-height: 100vh;
+  color: #fff;
+  position: relative;
+  overflow-x: hidden;
+}
+
+#lottie-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Header Styles */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 60px 0 60px;
+}
+
+.logo img {
+  width: 48px;
+  height: auto;
+}
+
+nav {
+  display: flex;
+  gap: 40px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: color 0.2s;
+  font-size: 1.05em;
+}
+
+nav a.active, nav a:hover {
+  color: #FFD600;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.cta button {
+  background-color: #FFD600;
+  color: #23234f;
+  font-weight: 700;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-right: 12px;
+  transition: box-shadow 0.2s;
+}
+.cta button:hover {
+  box-shadow: 0 4px 16px #ffd60055;
+}
+
+.cta .arrow {
+  font-size: 2em;
+  color: #FFD600;
+  margin-right: 8px;
+  transform: rotate(-30deg);
+}
+
+.cta .click-me {
+  color: #FFD600;
+  font-style: italic;
+  font-size: 1em;
+  position: absolute;
+  top: 52px;
+  right: 0;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 60px;
+  gap: 60px;
+  min-height: 75vh;
+}
+
+.avatar img {
+  width: 340px;
+  border-radius: 50%;
+  background: #23234f;
+  box-shadow: 0 8px 40px #00000030;
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.subtitle {
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 1px;
+  font-size: 1.1em;
+  margin-bottom: 12px;
+}
+
+.hero-text h1 {
+  font-size: 3.8em;
+  color: #FFD600;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+  line-height: 1.1;
+}
+
+.desc {
+  color: #fff;
+  font-size: 1.3em;
+  margin-bottom: 20px;
+}
+
+.about {
+  color: #ccc;
+  text-transform: uppercase;
+  font-size: 1em;
+  margin-top: 38px;
+  letter-spacing: 1px;
+}
+
+/* Responsive Styles */
+@media (max-width: 900px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 16px 0 16px;
+  }
+  .hero {
+    flex-direction: column;
+    gap: 32px;
+    margin-top: 30px;
+  }
+  .avatar img {
+    width: 220px;
+  }
+  .hero-text h1 {
+    font-size: 2.2em;
+  }
+}
